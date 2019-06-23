@@ -1,0 +1,35 @@
+{
+  "name": "slack-generic-events-listener",
+  "version": "1.0.0",
+  "description": "Slack generic events API listener for ChatOps",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ernestgwilsonii/slack-generic-event-listener-chatops.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ernestgwilsonii/slack-generic-event-listener-chatops/issues"
+  },
+  "homepage": "https://github.com/ernestgwilsonii/slack-generic-event-listener-chatops",
+  "keywords": [
+    "bots",
+    "chatops",
+    "slack",
+    "mqtt"
+  ],
+  "author": {
+    "email": "ErnestGWilsonII@gmail.com",
+    "name": "Ernest G. Wilson II",
+    "url": "https://github.com/ernestgwilsonii"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@slack/events-api": "^2.2.0",
+    "dotenv": "^8.0.0",
+    "slack": "^11.0.2"
+  },
+  "devDependencies": {}
+}

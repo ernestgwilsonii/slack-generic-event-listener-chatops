@@ -1,0 +1,33 @@
+FROM arm32v7/node:12.4.0-stretch-slim
+# REF: https://hub.docker.com/r/arm32v7/node
+
+RUN apt-get update \
+    && apt-get dist-upgrade -y \
+    && mkdir -p /opt/slack-generic-event-listener-chatops \
+    && mkdir -p /opt/slack-generic-event-listener-chatops/lib \
+    && useradd --home-dir /opt/slack-generic-event-listener-chatops --no-create-home nodejs \
+    && apt-get clean -y \
+    && apt-get autoclean -y \
+    && apt-get autoremove -y \
+    && rm -rf /var/lib/apt/lists/* \
+    && chown -R nodejs:nodejs /opt/slack-generic-event-listener-chatops
+
+# Default un-encrypted TCP port for HTTP incoming Webhooks from Slack
+EXPOSE 3080
+
+# Run as user nodejs (not as root)
+USER nodejs
+
+# Set Docker working directory
+WORKDIR /opt/slack-generic-event-listener-chatops
+
+# Copy in app dependencies
+COPY .env /opt/slack-generic-event-listener-chatops/.env
+COPY *.js /opt/slack-generic-event-listener-chatops/
+COPY *.json /opt/slack-generic-event-listener-chatops/
+COPY lib/*.js /opt/slack-generic-event-listener-chatops/lib/
+
+# Install Node.js modules
+RUN npm install
+
+CMD [ "npm", "start" ]
