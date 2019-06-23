@@ -4,7 +4,8 @@
 - This basic building block could be used to build a ChatOps bot
 
 ### Prerequisites
-- Add a ["bot" application to your Slack workspace](https://api.slack.com/apps) see [screen capture example settings](https://github.com/ernestgwilsonii/slack-generic-event-listener-chatops/docs)
+- Add a ["bot" application to your Slack workspace](https://api.slack.com/apps)
+- See [screen captures / example settings](https://github.com/ernestgwilsonii/slack-generic-event-listener-chatops/tree/master/docs)
 - For local development have [Node.js installed](https://nodejs.org/en/download/)
 - For local development have [ngrok installed](https://dashboard.ngrok.com/get-started) to forward the Webhook port (TCP 3080) to your PC
 - For cloud development have port TCP 3080 allowed inbound to receive the Webhook
